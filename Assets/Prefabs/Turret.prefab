@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2056845435575167214}
   - component: {fileID: 3611727405736850807}
   - component: {fileID: 6025867620939611182}
-  - component: {fileID: 613512116529735982}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -85,29 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &613512116529735982
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040377420204582924}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7854508703105853973
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +97,7 @@ GameObject:
   - component: {fileID: 5695814727739455073}
   - component: {fileID: 9069000370741335662}
   - component: {fileID: 8243469321591669294}
+  - component: {fileID: -5378612887129376272}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -229,9 +206,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2404c9be6d9dd14abfd612056e90816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
   bulletPrefab: {fileID: 6316365275537624957, guid: 67d4f9a7a04075048bf74f0802a462b1, type: 3}
+  zTopBound: 0
+  zBottomBound: 0
+  speed: 100
   gun: {fileID: 9158340119960200917}
+--- !u!54 &-5378612887129376272
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7854508703105853973}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &9158340119960200917
 GameObject:
   m_ObjectHideFlags: 0

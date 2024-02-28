@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 public class Units : MonoBehaviour
 {
    [SerializeField] protected GameObject bulletPrefab;
-   public float speed;
 
-   public float m_speed
+   [SerializeField] private float zTopBound;
+   [SerializeField] private float zBottomBound;
+   [SerializeField] private float speed;
+
+   public float unit_speed
    {
       get { return speed;}
       set { speed = value; }
@@ -22,5 +26,27 @@ public class Units : MonoBehaviour
    protected virtual void UseAbility()
    {
       
+   }
+
+   protected void CheckZBounds()
+   {
+      var zPos = gameObject.transform.position.z;
+      if (zPos > zTopBound)
+      {
+         zPos = zTopBound;
+      }
+      else if (zPos < zBottomBound)
+      {
+         zPos = zBottomBound;
+      }
+      gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,zPos);
+   }
+
+   protected virtual void OnCollisionEnter(Collision other)
+   {
+      if (other.gameObject.CompareTag("Enemy"))
+      {
+         Destroy(this.gameObject);
+      }
    }
 }

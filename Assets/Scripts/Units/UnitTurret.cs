@@ -12,7 +12,7 @@ public class UnitTurret : Units
     protected override void InputMovement()
     {
         var horizontal = Input.GetAxis("Horizontal");
-        gameObject.transform.Rotate(0,horizontal * speed * Time.deltaTime,0);
+        gameObject.transform.Rotate(0,horizontal * unit_speed * Time.deltaTime,0);
     }
 
     protected override void UseAbility()

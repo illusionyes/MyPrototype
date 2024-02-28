@@ -12,13 +12,14 @@ public class UnitSphere : Units
     {
         InputMovement();
         this.UseAbility();
+        CheckZBounds();
     }
     protected override void InputMovement()
     {
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
-        rb.AddRelativeForce(Vector3.forward * vertical * speed * Time.deltaTime, ForceMode.Impulse);
-        rb.AddRelativeForce(Vector3.right * horizontal * speed * Time.deltaTime, ForceMode.Impulse);
+        rb.AddRelativeForce(Vector3.forward * (vertical * unit_speed * Time.deltaTime), ForceMode.Impulse);
+        rb.AddRelativeForce(Vector3.right * (horizontal * unit_speed * Time.deltaTime), ForceMode.Impulse);
     }
     protected override void UseAbility()
     {
