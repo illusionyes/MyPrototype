@@ -1,15 +1,30 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] unitPrefab;
+    [SerializeField] private GameObject unitSpawnPoint;
     [SerializeField] private float xRange;
-    private void Start()
+    public static bool isOver;
+    private void Awake()
     {
-        InvokeRepeating("SpawnPrefab",1f,1.5f);
+        var unit = unitPrefab[DataManager.Instance.heroInt];
+        Instantiate(unit, unitSpawnPoint.transform.position,unit.transform.rotation);
+        StartCoroutine(SpawnPrefabCoroutine());
     }
+    private IEnumerator SpawnPrefabCoroutine()
+    {
+        while (isOver == false)
+        {
+            SpawnPrefab();
+            yield return new WaitForSeconds(1);
+        }
+    }
+
     private void SpawnPrefab()
     {
         var position = gameObject.transform.position;

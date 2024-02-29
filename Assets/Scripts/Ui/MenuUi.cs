@@ -16,7 +16,6 @@ public class MenuUi : MonoBehaviour
             Debug.Log("Need choose hero!");
         }
     }
-
     public void Exit()
     {
         EditorApplication.ExitPlaymode();
@@ -25,5 +24,6 @@ public class MenuUi : MonoBehaviour
     public void ChooseHero(int value)
     {
         isChoose = true;
+        DataManager.Instance.heroInt = value;
     }
 }

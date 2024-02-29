@@ -1,6 +1,4 @@
-
 using UnityEngine;
-
 public class UnitSpinner : Units
 {
     [SerializeField] private GameObject spinner;

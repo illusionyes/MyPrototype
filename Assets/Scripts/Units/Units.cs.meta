@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - bulletPrefab: {fileID: 6316365275537624957, guid: 67d4f9a7a04075048bf74f0802a462b1, type: 3}
+  - mainUiGo: {fileID: 9084035669819995675, guid: 73c796b342914d34da0e59141a6210c5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

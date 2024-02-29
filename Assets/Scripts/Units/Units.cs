@@ -4,6 +4,7 @@ using UnityEngine;
 public class Units : MonoBehaviour
 {
    [SerializeField] protected GameObject bulletPrefab;
+   [SerializeField] protected GameObject mainUiGo;
 
    [SerializeField] private float zTopBound;
    [SerializeField] private float zBottomBound;
@@ -46,6 +47,7 @@ public class Units : MonoBehaviour
    {
       if (other.gameObject.CompareTag("Enemy"))
       {
+         mainUiGo.GetComponent<MainUi>().GameOver();
          Destroy(this.gameObject);
       }
    }
