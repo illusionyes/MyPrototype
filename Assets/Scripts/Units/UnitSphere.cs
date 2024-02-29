@@ -4,15 +4,18 @@ public class UnitSphere : Units
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private GameObject[] points;
+    
+    public static bool isChoosed;
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        InputMovement();
-        this.UseAbility();
-        CheckZBounds();
+        if (isChoosed == false)
+        {
+            StopAllCoroutines();
+        }
     }
     protected override void InputMovement()
     {
@@ -23,12 +26,17 @@ public class UnitSphere : Units
     }
     protected override void UseAbility()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        for (int i = 0; i < points.Length; i++)
         {
-            for (int i = 0; i < points.Length; i++)
-            {
-                Instantiate(bulletPrefab, points[i].transform.position, points[i].transform.rotation);
-            }
+            Instantiate(bulletPrefab, points[i].transform.position, points[i].transform.rotation);
         }
+    }
+    
+    public void OnChooseSpin()
+    {
+        UnitTurret.isChoosed = false;
+        UnitSpinner.isChoosed = false;
+        isChoosed = true;
+        StartCoroutine(AbilityCoroutine(isChoosed,1));
     }
 }

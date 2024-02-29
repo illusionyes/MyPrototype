@@ -114,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 7854508703105853973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.16221279, y: 0, z: -0.20528235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,7 +193,7 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8243469321591669294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6316365275537624957, guid: 67d4f9a7a04075048bf74f0802a462b1, type: 3}
-  zTopBound: 0
-  zBottomBound: 0
+  zTopBound: -2.4
+  zBottomBound: -7
   speed: 100
   gun: {fileID: 9158340119960200917}
 --- !u!54 &-5378612887129376272
@@ -233,7 +233,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126

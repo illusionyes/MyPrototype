@@ -3,10 +3,15 @@ using UnityEngine;
 public class UnitTurret : Units
 {
     [SerializeField] private GameObject gun;
-    private void Update()
+    
+    public static bool isChoosed;
+    
+    private void FixedUpdate()
     {
-        this.InputMovement();
-        this.UseAbility();
+        if (isChoosed == false)
+        {
+           StopAllCoroutines();
+        }
     }
 
     protected override void InputMovement()
@@ -17,9 +22,14 @@ public class UnitTurret : Units
 
     protected override void UseAbility()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(bulletPrefab, gun.transform.position, gameObject.transform.rotation);
-        }
+         Instantiate(bulletPrefab, gun.transform.position, gameObject.transform.rotation);
+    }
+    public void OnChooseSpin()
+    {
+        UnitSpinner.isChoosed = false;
+        UnitSphere.isChoosed = false;
+        isChoosed = true;
+        StartCoroutine(AbilityCoroutine(isChoosed,1));
+        
     }
 }

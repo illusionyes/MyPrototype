@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6316365275537624957, guid: 67d4f9a7a04075048bf74f0802a462b1, type: 3}
-  zTopBound: 0
+  zTopBound: -2.4
   zBottomBound: -7
   speed: 10
   rb: {fileID: 0}
@@ -156,7 +156,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &529810910490544488
 GameObject:

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
-  zTopBound: 0
+  zTopBound: -2.4
   zBottomBound: -7
   speed: 10
   spinner: {fileID: 7925173111142018772}

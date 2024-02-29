@@ -1,13 +1,26 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuUi : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI bestScore;
     private bool isChoose;
+
+    private void Awake()
+    {
+        Units.isDemo = true;
+    }
+
+    private void Start()
+    {
+        bestScore.SetText("Best Score : " + DataManager.Instance.bestScore);
+    }
+
     public void LoadMainScene()
     {
-        if (isChoose)
+        if (isChoose == true)
         {
             SceneManager.LoadScene(1);
         }

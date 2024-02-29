@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +11,7 @@ public class Spawner : MonoBehaviour
     public static bool isOver;
     private void Awake()
     {
+        isOver = false;
         var unit = unitPrefab[DataManager.Instance.heroInt];
         Instantiate(unit, unitSpawnPoint.transform.position,unit.transform.rotation);
         StartCoroutine(SpawnPrefabCoroutine());
