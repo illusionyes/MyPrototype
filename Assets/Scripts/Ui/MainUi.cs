@@ -15,11 +15,12 @@ public class MainUi : MonoBehaviour
         mainUi = this;
         Units.isDemo = false;
         _scoreText = scoreText;
+        scoreUi = 0;
+        _scoreText.SetText("Score : " + scoreUi);
     }
 
     public void LoadMenuScene()
     {
-        DataManager.Instance.bestScore = scoreUi;
         SceneManager.LoadScene(0);
     }
 

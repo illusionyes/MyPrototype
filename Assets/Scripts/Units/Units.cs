@@ -101,6 +101,10 @@ public class Units : MonoBehaviour
       if (other.gameObject.CompareTag("Enemy"))
       {
          MainUi.mainUi.GameOver();
+         if (MainUi.scoreUi > DataManager.Instance.bestScore)
+         {
+            DataManager.Instance.bestScore = MainUi.scoreUi;
+         }
          Destroy(this.gameObject);
       }
    }

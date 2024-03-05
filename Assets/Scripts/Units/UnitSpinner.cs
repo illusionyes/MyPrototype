@@ -33,6 +33,8 @@ public class UnitSpinner : Units
         if (spinActive && other.gameObject.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
+            ++MainUi.scoreUi;
+            MainUi.SetScoreText(MainUi.scoreUi);
         }
         else
         {
