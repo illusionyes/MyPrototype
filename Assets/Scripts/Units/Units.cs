@@ -9,7 +9,7 @@ public class Units : MonoBehaviour
    [SerializeField] private float speed;
   
    public static bool isDemo;
-   public Coroutine coroutine;
+   private static Coroutine coroutine;
    public float unitSpeed
    {
       get { return speed; }
@@ -63,7 +63,6 @@ public class Units : MonoBehaviour
    private void Stop()
    {
       StopCoroutine(coroutine);
-      coroutine = null;
    }
 
    protected virtual void UseAbilityOnButton()
