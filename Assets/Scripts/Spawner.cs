@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject unitSpawnPoint;
     [SerializeField] private float xRange;
     public static bool isOver;
+    
     private void Awake()
     {
         isOver = false;
@@ -16,6 +17,7 @@ public class Spawner : MonoBehaviour
         Instantiate(unit, unitSpawnPoint.transform.position,unit.transform.rotation);
         StartCoroutine(SpawnPrefabCoroutine());
     }
+    
     private IEnumerator SpawnPrefabCoroutine()
     {
         while (isOver == false)
@@ -31,6 +33,7 @@ public class Spawner : MonoBehaviour
         var spawnPos = new Vector3(RandomX(), position.y, position.z);
         Instantiate(enemyPrefab, spawnPos , enemyPrefab.transform.rotation);
     }
+    
     private float RandomX()
     {
         return Random.Range(-xRange, xRange);

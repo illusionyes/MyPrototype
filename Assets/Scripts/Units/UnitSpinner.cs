@@ -5,15 +5,6 @@ public class UnitSpinner : Units
     [SerializeField] private float spinSpeed;
     private bool spinActive;
 
-    public static bool isChoosed;
-
-    private void FixedUpdate()
-    {
-        if (isChoosed == false)
-        {
-            StopAllCoroutines();
-        }
-    }
     protected override void UseAbilityOnButton()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -34,7 +25,7 @@ public class UnitSpinner : Units
     
     private void Spin()
     {
-        spinner.transform.Rotate(0, spinSpeed * Time.deltaTime * unit_speed,0);
+        spinner.transform.Rotate(0, spinSpeed * Time.deltaTime * unitSpeed,0);
     }
 
     protected override void OnCollisionEnter(Collision other)
@@ -47,13 +38,5 @@ public class UnitSpinner : Units
         {
             base.OnCollisionEnter(other);
         }
-    }
-
-    public void OnChooseSpin()
-    {
-        UnitTurret.isChoosed = false;
-        UnitSphere.isChoosed = false;
-        isChoosed = true;
-        StartCoroutine(AbilityCoroutine(isChoosed,0));
     }
 }

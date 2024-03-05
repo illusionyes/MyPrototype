@@ -9,8 +9,8 @@ public class Units : MonoBehaviour
    [SerializeField] private float speed;
   
    public static bool isDemo;
-   protected bool isUseAbility;
-   public float unit_speed
+   public Coroutine coroutine;
+   public float unitSpeed
    {
       get { return speed; }
       private set {
@@ -45,18 +45,25 @@ public class Units : MonoBehaviour
          gameObject.transform.Translate(Vector3.right * (horizontal * Time.deltaTime * speed));
       }
    }
+   
    protected virtual void UseAbility()
    {
       
    }
    
-   protected virtual IEnumerator AbilityCoroutine(bool isCho,float repeatTime)
+   private IEnumerator AbilityCoroutine(float repeatTime)
    {
-      while (isCho == true)
+      while (true)
       {
          UseAbility();
          yield return new WaitForSeconds(repeatTime);
       }
+   }
+
+   private void Stop()
+   {
+      StopCoroutine(coroutine);
+      coroutine = null;
    }
 
    protected virtual void UseAbilityOnButton()
@@ -64,14 +71,18 @@ public class Units : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.Space))
       {
          UseAbility();
-         isUseAbility = true;
-      }
-      else
-      {
-         isUseAbility = false;
       }
    }
-
+   
+   public void OnChoose(int rep)
+   {
+      if (coroutine != null)
+      {
+         Stop();
+      }
+      coroutine = StartCoroutine(AbilityCoroutine(rep));
+   }
+ 
    protected void CheckZBounds()
    {
       var zPos = gameObject.transform.position.z;

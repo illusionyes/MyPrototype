@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float force;
+    
     private void Start()
     {
         var rb = gameObject.GetComponent<Rigidbody>();

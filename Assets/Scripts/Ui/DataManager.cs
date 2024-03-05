@@ -3,8 +3,24 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set;}
-    public int heroInt;
     private int _bestScore;
+    private int _heroInt;
+    public int heroInt
+    {
+        get { return _heroInt;}
+        set
+        {
+            if (value < 0)
+            {
+                Debug.Log("error");
+            }
+            else
+            {
+                _heroInt = value;
+            }
+        }
+    }
+
     public int bestScore
     {
         get { return _bestScore; }

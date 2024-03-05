@@ -29,6 +29,7 @@ public class MenuUi : MonoBehaviour
             Debug.Log("Need choose hero!");
         }
     }
+   
     public void Exit()
     {
         EditorApplication.ExitPlaymode();
